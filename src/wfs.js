@@ -7,7 +7,7 @@ import Event from './events';
 import FlowController from  './controller/flow-controller'; 
 import BufferController from  './controller/buffer-controller';
 import EventEmitter from 'events';
-import XhrLoader from './utils/xhr-loader';
+//import XhrLoader from './utils/xhr-loader';
 import WebsocketLoader from './loader/websocket-loader';
 
 
@@ -34,10 +34,10 @@ class Wfs {
         autoStartLoad: true,
         startPosition: -1,
         debug: false, 
-        fLoader: undefined,
-        loader: XhrLoader,
+        //fLoader: undefined,
+        //loader: XhrLoader,
         //loader: FetchLoader,
-        fmp4FileUrl: 'xxxx.mp4',
+        //fmp4FileUrl: 'xxxx.mp4', fileLoader use
         fragLoadingTimeOut: 20000,
         fragLoadingMaxRetry: 6,
         fragLoadingRetryDelay: 1000,
@@ -89,10 +89,10 @@ class Wfs {
     this.websocketLoader.destroy();
   }
 
-  attachMedia(media, channelName='chX',mediaType='H264Raw', websocketName='play2') { // 'H264Raw' 'FMp4'    
+  attachMedia(media, websocketAddress, channelName='chX',mediaType='H264Raw') { // 'H264Raw' 'FMp4'    
     this.mediaType = mediaType; 
     this.media = media;
-    this.trigger(Event.MEDIA_ATTACHING, {media:media, channelName:channelName, mediaType:mediaType, websocketName:websocketName });
+    this.trigger(Event.MEDIA_ATTACHING, {media:media, websocketAddress:websocketAddress, channelName:channelName, mediaType:mediaType });
   }
   
   attachWebsocket(websocket,channelName) { 

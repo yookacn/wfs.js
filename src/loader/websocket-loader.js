@@ -15,8 +15,8 @@ class WebsocketLoader extends EventHandler {
     Event.WEBSOCKET_MESSAGE_SENDING)   
     this.buf = null;
     this.slicesReader = new SlicesReader(wfs);
-    this.mediaType = undefined; 
-    this.channelName = undefined; 
+    this.mediaType = undefined; //媒体类型，是否需要封成MP4
+    this.channelName = undefined; //传给后台的一个ID
   }
  
   destroy() { 
